@@ -426,7 +426,7 @@ export default function DinoGame() {
                             <div
                                 className="absolute inset-0"
                                 style={{
-                                    backgroundImage: "url('/bg.png')",
+                                    backgroundImage: "url('/bg-new.png')",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
                                     pointerEvents: "none",
