@@ -448,7 +448,7 @@ export default function DinoGame() {
                                         </button>
                                         <button
                                             type="button"
-                                            onClick={() => { setShowLeaderboard(true); try { const raw = localStorage.getItem('dinoScores'); const arr: number[] = raw ? JSON.parse(raw) : []; setTopScores(arr.slice(0,10)); } catch {} }}
+                                            onClick={() => { setShowMenu(false); setShowLeaderboard(true); try { const raw = localStorage.getItem('dinoScores'); const arr: number[] = raw ? JSON.parse(raw) : []; setTopScores(arr.slice(0,10)); } catch {} }}
                                             className="relative inline-flex items-center justify-center rounded-full px-6 py-3 text-black border-2 border-[#C8A02A] border-b-4 border-b-[#A9851F] shadow-[0_4px_0_#A9851F] bg-[#FFD44D] active:translate-y-[2px] active:shadow-[0_2px_0_#A9851F]"
                                             style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 11 }}
                                         >
@@ -461,8 +461,8 @@ export default function DinoGame() {
                     )}
 
                     {showLeaderboard && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-full px-6" onClick={() => setShowLeaderboard(false)}>
+                        <div className="absolute inset-0 z-20 flex items-center justify-center">
+                            <div className="w-full px-6" onClick={() => { setShowLeaderboard(false); setShowMenu(true); }}>
                                 <div className="mx-auto max-w-xs px-6 py-6 rounded-2xl bg-[var(--app-background)] border-2 border-[var(--app-card-border)] text-center shadow-[0_6px_0_rgba(0,0,0,0.15)]" onClick={(e) => e.stopPropagation()}>
                                     <div className="mb-3 text-[var(--app-foreground)]" style={{ fontFamily: "'Bangers', system-ui, sans-serif", fontSize: 26 }}>LEADERBOARD</div>
                                     <ol className="text-left text-[var(--app-foreground)] mb-4" style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: 15 }}>
@@ -476,7 +476,7 @@ export default function DinoGame() {
                                     </ol>
                                     <button
                                         type="button"
-                                        onClick={() => setShowLeaderboard(false)}
+                                        onClick={() => { setShowLeaderboard(false); setShowMenu(true); }}
                                         className="relative inline-flex items-center justify-center rounded-full px-6 py-3 text-black border-2 border-[#19A8E2] border-b-4 border-b-[#1189BC] shadow-[0_4px_0_#1189BC] bg-[#23C3FF] active:translate-y-[2px] active:shadow-[0_2px_0_#1189BC]"
                                         style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 12 }}
                                     >
